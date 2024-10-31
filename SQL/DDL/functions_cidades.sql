@@ -1,6 +1,6 @@
 --Para retornar todos os dados da cidade dado um ID
 CREATE OR REPLACE FUNCTION agenda.listar_cidade_id(cidade_id_input INT)
-RETURNS TABLE(id INT, nome VARCHAR, estado_nome VARCHAR, estado_sigla CHAR) AS $$
+RETURNS TABLE(id INT, nome CHAR, estado_nome CHAR, estado_sigla CHAR) AS $$
 BEGIN
     RETURN QUERY
     SELECT c.id, c.nome, e.nome AS estado_nome, e.sigla AS estado_sigla
@@ -12,7 +12,7 @@ $$ LANGUAGE plpgsql;
 
 --Para retornar todas as cidades de um estado dado o ID do estado
 CREATE OR REPLACE FUNCTION agenda.listar_cidades_estado_id(estado_id_input INT)
-RETURNS TABLE(id INT, nome VARCHAR) AS $$
+RETURNS TABLE(id INT, nome CHAR) AS $$
 BEGIN
     RETURN QUERY
     SELECT c.id, c.nome
@@ -23,8 +23,8 @@ $$ LANGUAGE plpgsql;
 --DROP FUNCTION get_cidades_by_estado(integer)
 
 --Para retornar cidades cujo nome começa com uma determinada string
-CREATE OR REPLACE FUNCTION agenda.listar_cidades_prefixo(nome_prefix VARCHAR)
-RETURNS TABLE(id INT, nome VARCHAR, estado_nome VARCHAR, estado_sigla CHAR) AS $$
+CREATE OR REPLACE FUNCTION agenda.listar_cidades_prefixo(nome_prefix CHAR)
+RETURNS TABLE(id INT, nome CHAR, estado_nome CHAR, estado_sigla CHAR) AS $$
 BEGIN
     RETURN QUERY
     SELECT c.id, c.nome, e.nome AS estado_nome, e.sigla AS estado_sigla
@@ -35,7 +35,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 --Para inserir uma nova cidade
-CREATE OR REPLACE FUNCTION agenda.inserir_cidade(nome VARCHAR, estado_id_input INT)
+CREATE OR REPLACE FUNCTION agenda.inserir_cidade(nome CHAR, estado_id_input INT)
 RETURNS VOID AS $$
 BEGIN
     INSERT INTO agenda.cidades (nome, estado_id)
@@ -53,7 +53,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 --Para atualizar os dados de uma cidade pelo ID
-CREATE OR REPLACE FUNCTION agenda.alterar_cidade(cidade_id_input INT, novo_nome VARCHAR, novo_estado_id INT)
+CREATE OR REPLACE FUNCTION agenda.alterar_cidade(cidade_id_input INT, novo_nome CHAR, novo_estado_id INT)
 RETURNS VOID AS $$
 BEGIN
     UPDATE agenda.cidades
