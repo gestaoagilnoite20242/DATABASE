@@ -62,11 +62,18 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 --------------------------------------------
-SELECT * FROM get_cidade_by_id(15);
-SELECT * FROM get_cidades_by_estado(1);
-SELECT * FROM get_cidades_by_nome_prefix('S');
-SELECT insert_cidade('Nova Cidade',5);
-SELECT delete_cidade(18);
-SELECT update_cidade(6, 'Nova Cidade', 1);
+SELECT * FROM agenda.listar_cidade_id(2);
+
+SELECT * FROM agenda.listar_cidades_estado_id(3);
+
+select * from agenda.listar_cidades_prefixo('S')
+
+SELECT agenda.inserir_cidade('Nova Cidade',3);
+
+SELECT agenda.deletar_cidade(7);
+
+SELECT agenda.alterar_cidade(7, 'Nova Cidade2', 1);
+------------------------------------
+select * from agenda.cidades;
 ------------------------------------
 select * from agenda.cidades
