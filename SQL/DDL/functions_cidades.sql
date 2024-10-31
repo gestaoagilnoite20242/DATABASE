@@ -30,7 +30,7 @@ BEGIN
     SELECT c.id, c.nome, e.nome AS estado_nome, e.sigla AS estado_sigla
     FROM agenda.cidades c
     JOIN agenda.estados e ON c.estado_id = e.id
-    WHERE c.nome LIKE nome_prefix || '%';
+    WHERE c.nome ILIKE nome_prefix || '%';
 END;
 $$ LANGUAGE plpgsql;
 
