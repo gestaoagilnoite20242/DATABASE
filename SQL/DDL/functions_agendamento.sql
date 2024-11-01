@@ -33,7 +33,7 @@ RETURNS TABLE (
     hora_inicio TIME,
     hora_fim TIME,
     assunto TEXT,
-    status VARCHAR,
+    status CHAR,
     criado_em TIMESTAMP,
     atualizado_em TIMESTAMP
 ) AS $$
@@ -73,7 +73,7 @@ RETURNS TABLE (
     hora_inicio TIME,
     hora_fim TIME,
     assunto TEXT,
-    status VARCHAR,
+    status CHAR,
     criado_em TIMESTAMP,
     atualizado_em TIMESTAMP
 ) AS $$
@@ -124,7 +124,7 @@ RETURNS TABLE (
     hora_inicio TIME,
     hora_fim TIME,
     assunto TEXT,
-    status VARCHAR,
+    status CHAR,
     criado_em TIMESTAMP,
     atualizado_em TIMESTAMP
 ) AS $$
@@ -156,7 +156,7 @@ CREATE OR REPLACE FUNCTION agenda.alterar_agendamento(
     hora_inicio_input TIME,
     hora_fim_input TIME,
     assunto_input TEXT,
-    status_input VARCHAR
+    status_input CHAR
 )
 RETURNS VOID AS $$
 BEGIN
