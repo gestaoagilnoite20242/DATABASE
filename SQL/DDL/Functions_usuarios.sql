@@ -151,7 +151,6 @@ CREATE OR REPLACE FUNCTION agenda.inserir_prestador(
     cpf_cnpj_input VARCHAR,
     atividade_input VARCHAR,
     listado_input BOOLEAN,
-    categoria_input TEXT,
     services_input TEXT,
     logo_input TEXT,
     instagram_input TEXT,
@@ -166,9 +165,9 @@ BEGIN
 
     IF NOT FOUND THEN
         -- Insere um novo registro na tabela 'prestadores'
-        INSERT INTO agenda.prestadores (usuario_id, cpf_cnpj, atividade, listado, categoria, 
+        INSERT INTO agenda.prestadores (usuario_id, cpf_cnpj, atividade, listado, 
                                         services, logo, instagram, website, criado_em)
-        VALUES (usuario_id_input, cpf_cnpj_input, atividade_input, listado_input, categoria_input, 
+        VALUES (usuario_id_input, cpf_cnpj_input, atividade_input, listado_input, 
                 services_input, logo_input, instagram_input, website_input, CURRENT_TIMESTAMP)
         RETURNING id INTO novo_prestador_id;
 
@@ -189,7 +188,6 @@ CREATE OR REPLACE FUNCTION agenda.alterar_prestador(
     cpf_cnpj_input VARCHAR,
     atividade_input VARCHAR,
     listado_input BOOLEAN,
-    categoria_input TEXT,
     services_input TEXT,
     logo_input TEXT,
     instagram_input TEXT,
@@ -203,7 +201,6 @@ BEGIN
     SET cpf_cnpj = cpf_cnpj_input,
         atividade = atividade_input,
         listado = listado_input
-        categoria = categoria_input,
         services = services_input,
         logo = logo_input,
         instagram = instagram_input,

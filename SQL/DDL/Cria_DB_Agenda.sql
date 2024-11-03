@@ -18,9 +18,9 @@ CREATE TABLE IF NOT EXISTS agenda.cidades (
 CREATE TABLE agenda.usuarios (
     id SERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
+    email VARCHAR(100),
     senha VARCHAR(255) NOT NULL,
-    telefone VARCHAR(20),
+    telefone VARCHAR(20) UNIQUE NOT NULL,
     ativo BOOLEAN DEFAULT TRUE,
     tipo_usuario CHAR(20) NOT NULL,
     CONSTRAINT tipo_usuario CHECK (tipo_usuario IN ('prestador', 'cliente', 'adm')),

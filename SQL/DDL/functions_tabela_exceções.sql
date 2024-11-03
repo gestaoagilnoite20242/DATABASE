@@ -16,7 +16,7 @@ $$ LANGUAGE plpgsql;
 
 --Criar a Função para Remover Registro
 
-CREATE OR REPLACE FUNCTION agenda.remover_excecao(
+CREATE OR REPLACE FUNCTION agenda.deletar_excecao(
     p_id INTEGER
 ) 
 RETURNS VOID AS $$
@@ -27,7 +27,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 --Criar a Função para Consultar Registros
-CREATE OR REPLACE FUNCTION agenda.consultar_excecoes(
+CREATE OR REPLACE FUNCTION agenda.listar_excecoes_prestador(
     p_prestador_id INTEGER,
     p_data_inicio DATE,
     p_data_fim DATE
